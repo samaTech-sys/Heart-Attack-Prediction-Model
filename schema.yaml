@@ -1,0 +1,11 @@
+COLUMNS:
+  age: int64  
+  sex :  int64  
+  total_cholesterol: float64
+  ldl: float64
+  hdl: float64
+  systolic_bp: float64
+  diastolic_bp: float64
+  smoking: int64  
+  diabetes: int64
+  heart_attack: int64 

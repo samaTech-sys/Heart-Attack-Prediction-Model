@@ -1,3 +1,22 @@
+Metadata-Version: 2.4
+Name: heartAttack
+Version: 0.0.0
+Summary: This project trainns a logistic regression model for predicting heat attack based on available parameters. It will aid deoctors in descision making while at deployment stage
+Home-page: https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}
+Author: samaTech-sys
+Author-email: collinetazuba@gmail.com
+Project-URL: Bug Tracker, https://github.com/samaTech-sys/Heart-Attack-Prediction-Model/issues
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: summary
+
 # Heart Attack Risk Prediction Model
 This model predicts the risk of getting heart attack depending on the given parameters. 
 
