@@ -206,12 +206,13 @@ AWS_ECR_LOGIN_URI=https://805472281831.signin.aws.amazon.com/console
 ECR_REPOSITORY_NAME=simple-app
 ```
 
-# 👨‍💻 Author
+# 👨‍💻 About Me
 Colline Tazuba (samaTech-sys)  
-Open to collaborations on ML, MLOps, and data-driven problem solving.  
+Open to collaborations on ML, MLOps and data-driven problem solving. Stay in touch!  
 📧 **Email:** 2samax24@gmail.com  
 📞 **Phone:** +256 789 288 903
 
 # 📜 License
-This project is licensed under the MIT License. See the LICENSE file for more information.
+This project is licensed under the [MIT License]. See the LICENSE file for more information.
+
 ---
