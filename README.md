@@ -20,56 +20,78 @@ This end-to-end machine learning pipeline includes:
 
 ## 🧠 Technologies Used
 
-- Python (3.8+)
+- Python (3.10.16)
 - Pandas, NumPy
 - Scikit-learn
 - Matplotlib, Seaborn
 - Jupyter Notebook
-- (Optional) Streamlit/Flask for deployment
+- Flask for deployment
 
 ---
 
 ## 📊 Features (Input Parameters)
 
-Typical input features may include:
-- Age
-- Sex
-- Chest pain type
-- Resting blood pressure
-- Cholesterol level
-- Fasting blood sugar
-- Maximum heart rate achieved
-- Exercise-induced angina
-- ST depression induced by exercise
-- Number of major vessels
-- Thalassemia type
+Typical input features for this project include:
+- age
+- sex
+- total_cholesterol
+- ldl
+- hdl
+- systolic_bp
+- diastolic_bp
+- smoking
+- diabetes
 
-> These features are based on the [Heart Disease UCI Dataset](https://archive.ics.uci.edu/ml/datasets/heart+Disease) or a similar dataset.
+## 🎯 Target Variable
+
+The model predicts the **risk of heart_attack** represented by a binary classification:
+
+- `0` – Low or No Risk
+- `1` – High Risk of Heart Attack
+
+> These features are based on the [Heart attack kaggle Dataset]
 
 ---
 
 ## 📁 Project Structure
 
 ```plaintext
-heart-attack-risk-prediction/
-│
-├── data/                  # Raw and processed datasets
-├── notebooks/             # Jupyter notebooks for exploration & modeling
-├── src/                   # Source code modules
-│   ├── ingestion.py
-│   ├── validation.py
-│   ├── processing.py
-│   ├── training.py
-│   ├── evaluation.py
-│   └── utils.py
-│
-├── models/                # Saved models
-├── outputs/               # Reports, metrics, plots
-├── app/                   # (Optional) Web app files
-│
+Heart-Attack-Prediction-Model/
+├── main.py
 ├── README.md
+├── setup.py
 ├── requirements.txt
-└── main.py
+├── dvc.yaml
+├── params.yaml
+├── schema.yaml
+├── heart_attack_dataset.csv
+├── analysis/
+│   └── EDA.ipynb
+├── artifacts/
+│   └── model_training/
+│       └── model.joblib
+├── config/
+│   └── config.yaml
+├── docs/
+│   └── ML LifeCycle.png
+├── engineering/
+│   └── step1_remove_multicolinearity.ipynb
+├── research/
+│   └── 01_data_ingestion.ipynb → 07_model_evaluation.ipynb
+├── src/
+│   └── heartAttack/
+│       ├── components/
+│       │   ├── data_ingestion.py
+│       │   ├── model_training.py
+│       │   └── ...
+│       ├── pipeline/
+│       │   └── stage_*.py
+│       ├── config/
+│       ├── constants/
+│       ├── entity/
+│       └── utils/
+└── templates/
+    └── index.html
 
 ----
 ## 🛠️ Development Workflow 
