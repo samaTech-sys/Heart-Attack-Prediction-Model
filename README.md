@@ -116,6 +116,7 @@ Heart-Attack-Prediction-Model/
 10. Develop prediction pipeline
 11. Develop app.py
 12. Deploy
+---
 
 # 🚀 How to Run the Project
 ## STEP 1: Clone the project 
