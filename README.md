@@ -15,7 +15,7 @@ This end-to-end machine learning pipeline includes:
 5. **Data Splitting** – Separating data into training, validation, and test sets.
 6. **Model Training** – Training a classifier to predict heart attack risk.
 7. **Model Evaluation** – Assessing model performance with various metrics.
-8. **Model Deployment** – The trained model is packaged into a Docker container, pushed to AWS ECR, and deployed on an EC2 instance for real-time predictions.
+8. **Model Deployment** – Trained Model containerized, pushed to ECR, deployed on EC2.
 
 ---
 
