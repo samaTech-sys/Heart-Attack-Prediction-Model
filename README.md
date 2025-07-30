@@ -15,6 +15,7 @@ This end-to-end machine learning pipeline includes:
 5. **Data Splitting** – Separating data into training, validation, and test sets.
 6. **Model Training** – Training a classifier to predict heart attack risk.
 7. **Model Evaluation** – Assessing model performance with various metrics.
+8. **Model Deployment** – The trained model is packaged into a Docker container, pushed to AWS ECR, and deployed on an EC2 instance for real-time predictions.
 
 ---
 
@@ -144,12 +145,12 @@ dvc repro     # Runs the DVC pipeline steps
 dvc dag       # Visualizes the DVC pipeline graph
 ```
 # 🔍 MLflow and DVC Overview
-## MLflow:
+**MLflow:**
 - Production-grade experiment tracking
 - Logs and registers models
 - Helps trace all your experiments
 
-## DVC:
+**DVC:**
 - Lightweight, ideal for proof of concept (POC)
 - Can track experiments
 - Enables pipeline orchestration
@@ -157,34 +158,34 @@ dvc dag       # Visualizes the DVC pipeline graph
 # ☁️ Deployment: AWS CI/CD with GitHub Actions
 ## STEP 1: Login to AWS Console
 ## STEP 2: Create IAM User for Deployment
-Permissions Needed:
+**Permissions Needed:**
 - EC2 Access – for running virtual machines
 - ECR Access – for storing Docker images
 
-Deployment Flow:
+**Deployment Flow:**
 - Build a Docker image from source code
 - Push Docker image to ECR
 - Launch an EC2 instance
 - Pull Docker image from ECR to EC2
 - Run Docker image on EC2
 
-Required IAM Policies:
+**Required IAM Policies:**
 - AmazonEC2ContainerRegistryFullAccess
 - AmazonEC2FullAccess
 
 ## STEP 3: Create ECR Repository
-Example:
+**Example:**
 ```bash 
 805472281831.dkr.ecr.eu-north-1.amazonaws.com/cnnklassifier
 ```
 ## STEP 4: Create EC2 Ubuntu Machine
 ## STEP 5: Install Docker on EC2 Machine
-# Optional
+**Optional**
 ```bash 
 sudo apt-get update -y
 sudo apt-get upgrade
 ```
-# Required
+**Required**
 ```bash 
 sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
@@ -205,7 +206,7 @@ ECR_REPOSITORY_NAME=simple-app
 ```
 
 # 👨‍💻 Author
-samaTech-sys
+Colline Tazuba (samaTech-sys)
 Open to collaborations on ML, MLOps, and data-driven problem solving.
 
 # 📜 License
