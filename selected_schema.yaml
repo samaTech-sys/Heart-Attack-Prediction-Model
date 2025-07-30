@@ -8,6 +8,7 @@ COLUMNS:
   diastolic_bp: float64
   smoking: int64  
   diabetes: int64
+  heart_attack: int64
 
 TARGET_COLUMN:   
   name: heart_attack

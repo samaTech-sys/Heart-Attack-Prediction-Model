@@ -1,1 +1,10 @@
-key: val
+data_splitting:
+  test_size: 0.2
+  random_state: 42
+
+ELASTICNET: 
+  alpha: 0.6
+  l1_ratio: 0.4
+
+TARGET_COLUMN: 
+  name: heart_attack

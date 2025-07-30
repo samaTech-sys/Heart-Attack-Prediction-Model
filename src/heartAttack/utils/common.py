@@ -3,7 +3,7 @@ from box.exceptions import BoxValueError
 import yaml
 import json
 import joblib
-from raisingVillage import logger
+from heartAttack import logger
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
