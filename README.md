@@ -92,114 +92,141 @@ Heart-Attack-Prediction-Model/
 │       └── utils/
 └── templates/
     └── index.html
+---
 
-----
-## 🛠️ Development Workflow 
-1. Update config.yaml
-2. Update secrets.yaml [optional]
-3. Update params.yaml
+## 🛠️ Development Workflow
+
+1. Update `config.yaml`
+2. Update `secrets.yaml` *(optional)*
+3. Update `params.yaml`
 4. Update the entity
-5. Update configurations manager in src config 
-6. Update the components 
+5. Update configuration manager in `src/config`
+6. Update the components
 7. Update the pipeline
-8. Update the main.py
-9. Update the dvc.yaml
+8. Update `main.py`
+9. Update `dvc.yaml`
 10. Develop prediction pipeline
-11. Develop app.py
-12. Deploy 
+11. Develop `app.py`
+12. Deploy
 
-# How to run the project?
-### STEPS
-Clone the project 
+---
 
-... bash 
-https://github.com/samaTech-sys/Rising-Village-Prediction-Model.git
-...
+## 🚀 How to Run the Project
 
-### STEP 01 Create a conda environemnt after opening the repository 
-... bash 
+### STEP 1: Clone the Repository
+
+```bash
+git clone https://github.com/samaTech-sys/Rising-Village-Prediction-Model.git
+cd Rising-Village-Prediction-Model
+````
+
+### STEP 2: Create and Activate Conda Environment
+
+```bash
 conda create -n heartAttack python=3.10.16
-...
-
-... bash 
 conda activate heartAttack
-...
+```
 
-### STEP 02 Install the requirements
-... bash 
+### STEP 3: Install Requirements
+
+```bash
 pip install -r requirements.txt
-...
+```
 
-### STEP 03 Credentials for connect to mlflow (during model evalation) 
+### STEP 4: Set MLflow Credentials (for model evaluation)
 
-... bash 
+```bash
 export MLFLOW_TRACKING_USERNAME=samaTech-sys
 export MLFLOW_TRACKING_PASSWORD=27c279e0895284a35a6198b88076b93c13073cab
+```
 
-...
+---
 
-### DCV Commands
+## 📦 DVC Commands
 
-1. dvc init (initilaises dvc in my project)
-2. dvc repro (duns the dvc steps)
-3. dvc dag (Visualises the dvc pipeline)
+1. `dvc init` – Initializes DVC in the project
+2. `dvc repro` – Runs the DVC pipeline steps
+3. `dvc dag` – Visualizes the DVC pipeline graph
 
-## About MLflow and DVC 
-MLflow 
-    - Its production Grade 
-    - Trace all your expriments 
-    - Logging and targing your model 
+---
 
-DVC 
-    - Its very light weight for POC only 
-    - lite weight experiments tracker
-    - It can perform orchestration(Creating pipelines)
+## 🔍 MLflow and DVC Overview
 
-# -------------Deployment---------------------- #
+### MLflow:
 
-# AWS-CICD-Deployment-with-Gihub-actions
+* Production-grade experiment tracking
+* Logs and registers models
+* Helps trace all your experiments
 
-## 1. Login into AWS Console 
+### DVC:
 
-## 2. Create IAM user for deployment 
-   #with specific access
-   1. EC2 access: It is a virtual machine 
-   2. ECR: Elastic container reistry to save your docker image
+* Lightweight, ideal for proof of concept (POC)
+* Can track experiments
+* Enables pipeline orchestration
 
-    #Decsription: about the deployment 
-    1. Build a docker image of the source code 
-    2. Push your docker image to ECR 
-    3. Launch your ECR 
-    4. Push your image from ECR to EC2
-    5. Launch your docker image in EC2
+---
 
-    #Policy: 
-    1. AmazonEC2ContainerRegistryFullAccess
-    2. AmazonEC2FullAccess
+# ☁️ Deployment: AWS CI/CD with GitHub Actions
 
-## 3. Create EC2 Repo to store/save docker image 
-    - save the url: 805472281831.dkr.ecr.eu-north-1.amazonaws.com/cnnklassifier
-    
-## 4. Creete EC2 Ubuntu Machine 
+## STEP 1: Login to AWS Console
 
-## 5. Open EC2 and install docker in EC2 Machine 
-    #optional 
-    sudo apt-get update -y 
-    sudo apt-get upgrade 
+## STEP 2: Create IAM User for Deployment
 
-    #required 
-    sudo sh get-docker.sh 
+* **Permissions Needed**:
 
-    sudo usermod -aG docker ubuntu 
+  * **EC2 Access** – for running virtual machines
+  * **ECR Access** – for storing Docker images
 
-    newgrp docker 
+### Description of Deployment Steps:
 
-## 6. Configure EC2 as self-hosted runner:
-Open your github account: setting>actions>runner>new self>choose os> then run command one by one 
+1. Build a Docker image from source code
+2. Push Docker image to ECR
+3. Launch an EC2 instance
+4. Pull Docker image from ECR to EC2
+5. Run Docker image on EC2
 
-## 7. Set up github access 
+### Required IAM Policies:
+
+* `AmazonEC2ContainerRegistryFullAccess`
+* `AmazonEC2FullAccess`
+
+## STEP 3: Create ECR Repository
+
+Example:
+
+```
+805472281831.dkr.ecr.eu-north-1.amazonaws.com/cnnklassifier
+```
+
+## STEP 4: Create EC2 Ubuntu Machine
+
+## STEP 5: Install Docker on EC2 Machine
+
+```bash
+# Optional
+sudo apt-get update -y
+sudo apt-get upgrade
+
+# Required
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
+
+## STEP 6: Configure EC2 as Self-Hosted Runner
+
+> Go to GitHub → Settings → Actions → Runners → New → Choose OS → Run each setup command
+
+## STEP 7: Setup GitHub Access for Deployment
+
+Set the following secrets in GitHub:
+
+```env
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
-AWS_REGION = eu-north-1
-AWS_ECR_LOGIN_URI= demo>>> https://805472281831.signin.aws.amazon.com/console
+AWS_REGION=eu-north-1
+AWS_ECR_LOGIN_URI=https://805472281831.signin.aws.amazon.com/console
 ECR_REPOSITORY_NAME=simple-app
+```
+
+```
