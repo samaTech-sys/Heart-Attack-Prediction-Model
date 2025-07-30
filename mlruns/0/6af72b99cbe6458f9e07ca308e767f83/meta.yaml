@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Junior/OneDrive/Desktop/Heart-Attack-Prediction-Model/mlruns/0/6af72b99cbe6458f9e07ca308e767f83/artifacts
+end_time: 1753868876525
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6af72b99cbe6458f9e07ca308e767f83
+run_name: masked-bird-474
+run_uuid: 6af72b99cbe6458f9e07ca308e767f83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753868876402
+status: 4
+tags: []
+user_id: Junior

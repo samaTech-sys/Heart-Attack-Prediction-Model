@@ -7,7 +7,8 @@ from heartAttack.entity.entity_config import (
     DataProcessingConfig, 
     DataTransformationConfig,
     DataSplittingConfig,
-    ModelTrainerConfig
+    ModelTrainerConfig, 
+    ModelEvaluationConfig
     )
 
 #Updating the configuration file 
@@ -107,7 +108,7 @@ class ConfigurationManager:
         )
         return data_splitting_config
     
-     #Step 7: Model Training method 
+     #Step : Model Training method 
     def get_model_training_config(self) -> ModelTrainerConfig:
         config = self.config.model_training
         params = self.params.ELASTICNET
@@ -125,3 +126,23 @@ class ConfigurationManager:
             target_column=selected_schema.name
         )
         return model_training_config
+    
+     #Step 7: Model Evaluation method 
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.ELASTICNET
+        target_column = self.params.TARGET_COLUMN.name  # Accessing nested key
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
+            model_path=config.model_path,
+            all_params=params,
+            metric_file_name=config.metric_file_name,
+            target_column=target_column,
+            mlflow_uri="https://dagshub.com/samaTech-sys/Heart-Attack-Prediction-Model.mlflow"
+        )
+        
+        return model_evaluation_config
