@@ -5,7 +5,8 @@ from heartAttack.entity.entity_config import (
     DataIngestionConfig, 
     DataValidationConfig, 
     DataProcessingConfig, 
-    DataTransformationConfig
+    DataTransformationConfig,
+    DataSplittingConfig
     )
 
 #Updating the configuration file 
@@ -22,6 +23,7 @@ class ConfigurationManager:
        
         create_directories([self.config.artifacts_root])
     
+    #Step 1: Data Ingestion method 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
         create_directories([config.root_dir])
@@ -34,6 +36,7 @@ class ConfigurationManager:
         )
         return data_ingestion_config
     
+    #Step 2: Data Validation method 
     def get_data_validation_config(self) -> DataValidationConfig:
         config = self.config.data_validation
         schema = self.schema.COLUMNS
@@ -48,6 +51,7 @@ class ConfigurationManager:
         )
         return data_validation_config
     
+    #Step 3: Data Processing method 
     def get_data_processing_config(self) -> DataProcessingConfig:
         config = self.config.data_processing
         data_validation_config = self.config.data_validation
@@ -70,6 +74,7 @@ class ConfigurationManager:
         )
         return data_processing_config
     
+    #Step 4: Data Transformation method 
     def get_data_transformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
         data_processing_config = self.config.data_processing 
@@ -82,5 +87,23 @@ class ConfigurationManager:
             selected_data_file=data_processing_config.selected_data_file,
         )
         return data_transformation_config
+    
+    #Step 1: Data Splitting method 
+    def get_data_splitting_config(self) -> DataSplittingConfig:
+        config = self.config.data_splitting
+        data_transformation_config = self.config.data_transformation
+        params = self.params.data_splitting
+        
+        create_directories([config.root_dir])
+        
+        data_splitting_config = DataSplittingConfig(
+            root_dir=config.root_dir,
+            processed_data_file=data_transformation_config.processed_data_file, 
+            train_set_path=config.train_set_path, 
+            test_set_path=config.test_set_path, 
+            test_size=float(params.test_size),
+            random_state=int(params.random_state)    
+        )
+        return data_splitting_config
     
     

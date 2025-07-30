@@ -733,3 +733,61 @@ x=========x]
 [2025-07-30 02:02:47,947: INFO: main: >>>>> Data Transformation Stage completed >>>>>
 
 x=========x]
+[2025-07-30 02:19:20,191: INFO: main: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2025-07-30 02:19:20,200: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 02:19:20,204: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 02:19:20,209: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 02:19:20,209: INFO: common: Created directory at: artifacts]
+[2025-07-30 02:19:20,213: INFO: common: Created directory at: artifacts/data_ingestion]
+[2025-07-30 02:19:20,219: INFO: data_ingestion: File already exists: ~33 KB]
+[2025-07-30 02:19:20,232: INFO: main: >>>>> Data Ingestion Stage completed >>>>>
+
+x=========x]
+[2025-07-30 02:19:20,233: INFO: main: >>>>>> stage Data Validataion Stage started <<<<<<]
+[2025-07-30 02:19:20,249: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 02:19:20,254: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 02:19:20,261: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 02:19:20,264: INFO: common: Created directory at: artifacts]
+[2025-07-30 02:19:20,265: ERROR: main: 'ConfigurationManager' object has no attribute 'schema']
+Traceback (most recent call last):
+  File "C:\Users\Junior\OneDrive\Desktop\Heart-Attack-Prediction-Model\main.py", line 23, in <module>
+    obj.main()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\pipeline\stage_02_data_validation.py", line 13, in main
+    data_validation_config = config.get_data_validation_config()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\config\configuration.py", line 42, in get_data_validation_config
+    schema = self.schema.COLUMNS
+AttributeError: 'ConfigurationManager' object has no attribute 'schema'
+[2025-07-30 02:19:20,267: INFO: main: >>>>>> stage Data Processing Stage started <<<<<<]
+[2025-07-30 02:19:20,279: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 02:19:20,283: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 02:19:20,288: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 02:19:20,288: INFO: common: Created directory at: artifacts]
+[2025-07-30 02:19:20,290: INFO: common: Created directory at: artifacts/data_processing]
+[2025-07-30 02:19:20,338: INFO: data_processing: Saved 10 features to artifacts\data_processing\selected_features.csv]
+[2025-07-30 02:19:20,338: INFO: data_processing: Target column: {'name': 'heart_attack'}]
+[2025-07-30 02:19:20,374: INFO: data_processing: Validation passed]
+[2025-07-30 02:19:20,375: INFO: main: >>>>> Data Processing Stage completed >>>>>
+
+x=========x]
+[2025-07-30 02:19:20,376: INFO: main: >>>>>> stage Data Transformation Stage started <<<<<<]
+[2025-07-30 02:19:20,379: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 02:19:20,390: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 02:19:20,396: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 02:19:20,396: INFO: common: Created directory at: artifacts]
+[2025-07-30 02:19:20,396: INFO: common: Created directory at: artifacts/data_transformation]
+[2025-07-30 02:19:20,428: INFO: data_transformation: Processed data stored at: artifacts\data_transformation\processed_df.csv]
+[2025-07-30 02:19:20,428: INFO: main: >>>>> Data Transformation Stage completed >>>>>
+
+x=========x]
+[2025-07-30 02:19:20,428: INFO: main: >>>>>> stage Data Splitting Stage started <<<<<<]
+[2025-07-30 02:19:20,435: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 02:19:20,439: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 02:19:20,444: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 02:19:20,445: INFO: common: Created directory at: artifacts]
+[2025-07-30 02:19:20,446: INFO: common: Created directory at: artifacts/data_splitting]
+[2025-07-30 02:19:20,481: INFO: data_splitting: Splitted data into train and test sets]
+[2025-07-30 02:19:20,481: INFO: data_splitting: Train set saved to artifacts/data_splitting/train_set.csv]
+[2025-07-30 02:19:20,481: INFO: data_splitting: Test set saved to artifacts/data_splitting/test_set.csv]
+[2025-07-30 02:19:20,481: INFO: main: >>>>> Data Splitting Stage completed >>>>>
+
+x=========x]
