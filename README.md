@@ -145,12 +145,69 @@ dvc dag       # Visualizes the DVC pipeline graph
 ```
 # 🔍 MLflow and DVC Overview
 ## MLflow:
-Production-grade experiment tracking
-Logs and registers models
-Helps trace all your experiments
+- Production-grade experiment tracking
+- Logs and registers models
+- Helps trace all your experiments
 
 ## DVC:
-Lightweight, ideal for proof of concept (POC)
-Can track experiments
-Enables pipeline orchestration
+- Lightweight, ideal for proof of concept (POC)
+- Can track experiments
+- Enables pipeline orchestration
+
+# ☁️ Deployment: AWS CI/CD with GitHub Actions
+## STEP 1: Login to AWS Console
+## STEP 2: Create IAM User for Deployment
+Permissions Needed:
+- EC2 Access – for running virtual machines
+- ECR Access – for storing Docker images
+
+Deployment Flow:
+- Build a Docker image from source code
+- Push Docker image to ECR
+- Launch an EC2 instance
+- Pull Docker image from ECR to EC2
+- Run Docker image on EC2
+
+Required IAM Policies:
+- AmazonEC2ContainerRegistryFullAccess
+- AmazonEC2FullAccess
+
+## STEP 3: Create ECR Repository
+Example:
+```bash 
+805472281831.dkr.ecr.eu-north-1.amazonaws.com/cnnklassifier
+```
+## STEP 4: Create EC2 Ubuntu Machine
+## STEP 5: Install Docker on EC2 Machine
+# Optional
+```bash 
+sudo apt-get update -y
+sudo apt-get upgrade
+```
+# Required
+```bash 
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
+## STEP 6: Configure EC2 as Self-Hosted GitHub Runner
+Go to GitHub → Settings > Actions > Runners → New Runner → Choose OS → Run each setup command.
+
+## STEP 7: Setup GitHub Secrets
+Set the following secrets in GitHub Actions:
+env
+```bash 
+AWS_ACCESS_KEY_ID=your_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=eu-north-1
+AWS_ECR_LOGIN_URI=https://805472281831.signin.aws.amazon.com/console
+ECR_REPOSITORY_NAME=simple-app
+```
+
+# 👨‍💻 Author
+samaTech-sys
+Open to collaborations on ML, MLOps, and data-driven problem solving.
+
+# 📜 License
+This project is licensed under the MIT License. See the LICENSE file for more information.
 ---
