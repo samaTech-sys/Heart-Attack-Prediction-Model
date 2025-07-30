@@ -4,6 +4,7 @@ from heartAttack.pipeline.stage_02_data_validation import DataValidationTraining
 from heartAttack.pipeline.stage_03_data_processing import DataProcessingTrainingPipeline
 from heartAttack.pipeline.stage_04_data_transformation import DataTransformationTrainingPipeline
 from heartAttack.pipeline.stage_05_data_splitting import DataSplittingTrainingPipeline
+from heartAttack.pipeline.stage_06_model_training import ModelTrainingTrainingPipeline
 
 #Step 1: Data Ingestion
 STAGE_NAME = "Data Ingestion Stage"
@@ -50,6 +51,17 @@ STAGE_NAME = "Data Splitting Stage"
 try:
     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
     obj = DataSplittingTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>> {STAGE_NAME} completed >>>>>\n\nx=========x")
+except Exception as e:
+    logger.exception(e)
+
+
+#Step 6: Model Training 
+STAGE_NAME = "Model training Stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    obj = ModelTrainingTrainingPipeline()
     obj.main()
     logger.info(f">>>>> {STAGE_NAME} completed >>>>>\n\nx=========x")
 except Exception as e:

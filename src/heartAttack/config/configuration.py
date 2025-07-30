@@ -6,7 +6,8 @@ from heartAttack.entity.entity_config import (
     DataValidationConfig, 
     DataProcessingConfig, 
     DataTransformationConfig,
-    DataSplittingConfig
+    DataSplittingConfig,
+    ModelTrainerConfig
     )
 
 #Updating the configuration file 
@@ -88,7 +89,7 @@ class ConfigurationManager:
         )
         return data_transformation_config
     
-    #Step 1: Data Splitting method 
+    #Step 5: Data Splitting method 
     def get_data_splitting_config(self) -> DataSplittingConfig:
         config = self.config.data_splitting
         data_transformation_config = self.config.data_transformation
@@ -106,4 +107,21 @@ class ConfigurationManager:
         )
         return data_splitting_config
     
-    
+     #Step 7: Model Training method 
+    def get_model_training_config(self) -> ModelTrainerConfig:
+        config = self.config.model_training
+        params = self.params.ELASTICNET
+        selected_schema = self.selected_schema.TARGET_COLUMN
+        
+        create_directories([config.root_dir])
+        
+        model_training_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path = config.train_data_path,
+            test_data_path = config.test_data_path,
+            model_name=config.model_name, 
+            alpha= params.alpha,
+            l1_ratio= params.l1_ratio,
+            target_column=selected_schema.name
+        )
+        return model_training_config
