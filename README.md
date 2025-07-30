@@ -208,7 +208,7 @@ ECR_REPOSITORY_NAME=simple-app
 
 # 👨‍💻 Author
 Colline Tazuba (samaTech-sys)  
-Open to collaborations on ML, MLOps, and data-driven problem solving.
+Open to collaborations on ML, MLOps, and data-driven problem solving.  
 📧 **Email:** 2samax24@gmail.com  
 📞 **Phone:** +256 789 288 903
 
