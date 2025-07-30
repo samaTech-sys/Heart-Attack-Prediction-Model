@@ -213,6 +213,6 @@ Open to collaborations on ML, MLOps and data-driven problem solving. Stay in tou
 📞 **Phone:** +256 789 288 903
 
 # 📜 License
-This project is licensed under the [MIT License]. See the LICENSE file for more information.
+This project is licensed under the [MIT License](LICENSE). See the LICENSE file for more information.
 
 ---
