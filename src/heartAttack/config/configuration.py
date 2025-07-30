@@ -4,7 +4,8 @@ from heartAttack.utils.common import read_yaml, create_directories
 from heartAttack.entity.entity_config import (
     DataIngestionConfig, 
     DataValidationConfig, 
-    DataProcessingConfig
+    DataProcessingConfig, 
+    DataTransformationConfig
     )
 
 #Updating the configuration file 
@@ -68,5 +69,18 @@ class ConfigurationManager:
             target_column=target_column  
         )
         return data_processing_config
+    
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        config = self.config.data_transformation
+        data_processing_config = self.config.data_processing 
+        
+        create_directories([config.root_dir])
+        
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            processed_data_file=Path(config.processed_data_file),
+            selected_data_file=data_processing_config.selected_data_file,
+        )
+        return data_transformation_config
     
     
