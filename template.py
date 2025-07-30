@@ -25,6 +25,7 @@ list_of_files = [
     "selected_schema.yaml",
     "requirements.txt",
     "setup.py", 
+    "docs",
     "research/trials.ipynb", 
     "reports/",
     "analysis/steps/step1_basic_data_inspection.py", 
