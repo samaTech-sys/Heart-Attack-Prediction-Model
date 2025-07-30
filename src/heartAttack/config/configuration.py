@@ -3,7 +3,8 @@ from heartAttack.constants import *
 from heartAttack.utils.common import read_yaml, create_directories
 from heartAttack.entity.entity_config import (
     DataIngestionConfig, 
-    DataValidationConfig
+    DataValidationConfig, 
+    DataProcessingConfig
     )
 
 #Updating the configuration file 
@@ -12,11 +13,11 @@ class ConfigurationManager:
         self, 
         config_filepath = CONFIG_FILE_PATH, 
         params_filepath = PARAMS_FILE_PATH,
-        schema_filepath = SCHEMA_FILE_PATH):
+        selected_schema_filepath = SELECTED_SCHEMA_FILE_PATH):
 
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
-        self.schema = read_yaml(schema_filepath)
+        self.selected_schema = read_yaml(selected_schema_filepath)
        
         create_directories([self.config.artifacts_root])
     
@@ -45,5 +46,27 @@ class ConfigurationManager:
             all_schema=schema
         )
         return data_validation_config
+    
+    def get_data_processing_config(self) -> DataProcessingConfig:
+        config = self.config.data_processing
+        data_validation_config = self.config.data_validation
+        selected_schema = self.selected_schema.COLUMNS  
+            
+        # Get target column from selected_schema 
+        target_column = getattr(self.selected_schema, 'TARGET_COLUMN', None)
+        if target_column is None:
+            raise ValueError("Target column not specified in selected schema")
+        
+        create_directories([config.root_dir])
+        
+        data_processing_config = DataProcessingConfig(
+            root_dir=Path(config.root_dir),
+            validation_report= Path(config.validation_report),
+            selected_data_file=Path(config.selected_data_file),
+            all_schema=selected_schema,
+            unzip_data_dir=Path(data_validation_config.unzip_data_dir),
+            target_column=target_column  
+        )
+        return data_processing_config
     
     

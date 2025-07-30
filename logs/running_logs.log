@@ -569,3 +569,72 @@ x=========x]
 [2025-07-30 01:04:35,421: INFO: main: >>>>> Data Validataion Stage completed >>>>>
 
 x=========x]
+[2025-07-30 01:35:22,112: INFO: main: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2025-07-30 01:35:22,112: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:35:22,126: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:35:22,127: INFO: common: yaml_file: schema.yaml loaded successfully]
+[2025-07-30 01:35:22,127: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:35:22,127: INFO: common: Created directory at: artifacts/data_ingestion]
+[2025-07-30 01:35:22,131: INFO: data_ingestion: File already exists: ~33 KB]
+[2025-07-30 01:35:22,136: INFO: main: >>>>> Data Ingestion Stage completed >>>>>
+
+x=========x]
+[2025-07-30 01:35:22,139: INFO: main: >>>>>> stage Data Validataion Stage started <<<<<<]
+[2025-07-30 01:35:22,151: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:35:22,156: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:35:22,158: INFO: common: yaml_file: schema.yaml loaded successfully]
+[2025-07-30 01:35:22,159: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:35:22,159: INFO: common: Created directory at: artifacts/data_validation]
+[2025-07-30 01:35:22,181: INFO: main: >>>>> Data Validataion Stage completed >>>>>
+
+x=========x]
+[2025-07-30 01:35:22,182: INFO: main: >>>>>> stage Data Processing Stage started <<<<<<]
+[2025-07-30 01:35:22,190: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:35:22,194: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:35:22,196: INFO: common: yaml_file: schema.yaml loaded successfully]
+[2025-07-30 01:35:22,197: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:35:22,198: ERROR: main: 'ConfigurationManager' object has no attribute 'selected_schema']
+Traceback (most recent call last):
+  File "C:\Users\Junior\OneDrive\Desktop\Heart-Attack-Prediction-Model\main.py", line 30, in <module>
+    obj.main()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\pipeline\stage_03_data_processing.py", line 13, in main
+    data_processing_config = config.get_data_processing_config()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\config\configuration.py", line 53, in get_data_processing_config
+    selected_schema = self.selected_schema.COLUMNS
+AttributeError: 'ConfigurationManager' object has no attribute 'selected_schema'
+[2025-07-30 01:40:40,234: INFO: main: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2025-07-30 01:40:40,239: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:40:40,239: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:40:40,239: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 01:40:40,239: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:40:40,239: INFO: common: Created directory at: artifacts/data_ingestion]
+[2025-07-30 01:40:40,239: INFO: data_ingestion: File already exists: ~33 KB]
+[2025-07-30 01:40:40,255: INFO: main: >>>>> Data Ingestion Stage completed >>>>>
+
+x=========x]
+[2025-07-30 01:40:40,255: INFO: main: >>>>>> stage Data Validataion Stage started <<<<<<]
+[2025-07-30 01:40:40,255: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:40:40,269: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:40:40,275: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 01:40:40,275: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:40:40,275: ERROR: main: 'ConfigurationManager' object has no attribute 'schema']
+Traceback (most recent call last):
+  File "C:\Users\Junior\OneDrive\Desktop\Heart-Attack-Prediction-Model\main.py", line 19, in <module>
+    obj.main()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\pipeline\stage_02_data_validation.py", line 13, in main
+    data_validation_config = config.get_data_validation_config()
+  File "c:\users\junior\onedrive\desktop\heart-attack-prediction-model\src\heartAttack\config\configuration.py", line 38, in get_data_validation_config
+    schema = self.schema.COLUMNS
+AttributeError: 'ConfigurationManager' object has no attribute 'schema'
+[2025-07-30 01:40:40,277: INFO: main: >>>>>> stage Data Processing Stage started <<<<<<]
+[2025-07-30 01:40:40,290: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:40:40,293: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:40:40,297: INFO: common: yaml_file: selected_schema.yaml loaded successfully]
+[2025-07-30 01:40:40,298: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:40:40,298: INFO: common: Created directory at: artifacts/data_processing]
+[2025-07-30 01:40:40,342: INFO: data_processing: Saved 10 features to artifacts\data_processing\selected_features.csv]
+[2025-07-30 01:40:40,344: INFO: data_processing: Target column: {'name': 'heart_attack'}]
+[2025-07-30 01:40:40,368: INFO: data_processing: Validation passed]
+[2025-07-30 01:40:40,369: INFO: main: >>>>> Data Processing Stage completed >>>>>
+
+x=========x]
