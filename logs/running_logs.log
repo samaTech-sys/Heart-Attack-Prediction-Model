@@ -550,3 +550,22 @@ Source-Age: 0
 [2025-07-30 00:54:20,980: INFO: main: >>>>> Data Ingestion Stage completed >>>>>
 
 x=========x]
+[2025-07-30 01:04:35,368: INFO: main: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2025-07-30 01:04:35,371: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:04:35,375: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:04:35,377: INFO: common: yaml_file: schema.yaml loaded successfully]
+[2025-07-30 01:04:35,378: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:04:35,378: INFO: common: Created directory at: artifacts/data_ingestion]
+[2025-07-30 01:04:35,378: INFO: data_ingestion: File already exists: ~33 KB]
+[2025-07-30 01:04:35,383: INFO: main: >>>>> Data Ingestion Stage completed >>>>>
+
+x=========x]
+[2025-07-30 01:04:35,383: INFO: main: >>>>>> stage Data Validataion Stage started <<<<<<]
+[2025-07-30 01:04:35,392: INFO: common: yaml_file: config\config.yaml loaded successfully]
+[2025-07-30 01:04:35,395: INFO: common: yaml_file: params.yaml loaded successfully]
+[2025-07-30 01:04:35,399: INFO: common: yaml_file: schema.yaml loaded successfully]
+[2025-07-30 01:04:35,399: INFO: common: Created directory at: artifacts]
+[2025-07-30 01:04:35,400: INFO: common: Created directory at: artifacts/data_validation]
+[2025-07-30 01:04:35,421: INFO: main: >>>>> Data Validataion Stage completed >>>>>
+
+x=========x]
